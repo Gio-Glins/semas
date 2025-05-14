@@ -120,7 +120,7 @@ export default function PlenariaApp() {
       "Número do Processo": proc.numero,
       "Autuado(a)": proc.nome,
       Resumo: proc.resumo,
-      "Parecer Técnico": proc.pc
+      "Parecer Técnico": proc.pc,
       "Primeira Instancia": proc.parecer,
       "Sugestão de Julgamento": proc.sugestao,
       ...Object.fromEntries(
