@@ -117,8 +117,9 @@ export default function PlenariaApp() {
   const exportarResultados = () => {
     const dadosExportados = processos.map((proc) => ({
       "Número do Processo": proc.numero,
+      "Autuado(a)": proc.nome,
       Resumo: proc.resumo,
-      "Parecer Técnico": proc.parecer,
+      "Primeira Instancia": proc.parecer,
       "Sugestão de Julgamento": proc.sugestao,
       ...Object.fromEntries(
         (proc.votos || []).map((v: any, i: number) => [
@@ -185,7 +186,7 @@ export default function PlenariaApp() {
           {usuario !== administrador && processoSelecionado && (
             <Card className="max-w-2xl mx-auto shadow-lg">
               <CardContent className="space-y-4 pt-6">
-                <h2 className="text-2xl font-bold text-blue-700">
+                <h2 className="text-2xl font-bold text-black">
                   Processo {processoSelecionado.numero}
                 </h2>
                 <p><strong>Resumo:</strong> {processoSelecionado.resumo}</p>
