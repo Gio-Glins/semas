@@ -140,7 +140,7 @@ export default function PlenariaApp() {
       <h1 className="text-3xl font-extrabold text-center mb-4">Plenária de Julgamento</h1>
 
       {!planilhaCarregada ? (
-        <div className="mb-6 bg-gray-800 shadow-md rounded p-4">
+        <div className="mb-6 bg-gray-600 shadow-md rounded p-4">
           <label className="block mb-2 font-semibold text-lg">Carregar planilha Excel:</label>
           <input type="file" accept=".xlsx, .xls" onChange={handleUpload} className="p-2 border rounded w-full bg-gray-700 text-white" />
         </div>
