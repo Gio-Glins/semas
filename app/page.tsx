@@ -139,12 +139,12 @@ export default function PlenariaApp() {
 
   return (
     <div className="p-6 space-y-6 bg-gray-900 min-h-screen text-white">
-      <h1 className="text-3xl font-extrabold text-center mb-4">Plenária de Julgamento</h1>
+      <h1 className="text-3xl font-extrabold text-center mb-4">TRIBUNAL ADMINISTRATIVO</h1>
 
       {!planilhaCarregada ? (
-        <div className="mb-12 bg-gray-800 shadow-md rounded p-4">
+        <div className="mb-10 bg-gray-800 shadow-md rounded p-2">
           <label className="block mb-2 font-semibold text-lg">Carregar planilha Excel:</label>
-          <input type="file" accept=".xlsx, .xls" onChange={handleUpload} className="p-2 border rounded w-full bg-gray-700 text-white" />
+          <input type="file" accept=".xlsx, .xls" onChange={handleUpload} className="p-1 border rounded w-full bg-gray-700 text-white" />
         </div>
       ) : !autenticado ? (
         <div className="space-y-4 max-w-md bg-gray-800 shadow-md rounded p-6 mx-auto">
@@ -172,7 +172,7 @@ export default function PlenariaApp() {
           </p>
 
           {usuario !== administrador && processos.length > 0 && processosRestantes.length > 0 && (
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-2 justify-center">
               {processosRestantes.map((proc) => (
                 <Button key={proc.id} onClick={() => selecionarProcesso(proc.id.toString())}>
                   {proc.id} - {proc.numero}
