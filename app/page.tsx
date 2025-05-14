@@ -91,8 +91,9 @@ export default function PlenariaApp() {
         id: row["ID"] || index + 1,
         numero: row["Número do Processo"] || `N/A-${index + 1}`,
         nome: row["Autuado"] || "sem nome",
-        resumo: row["Resumo"] || "Sem resumo",
-        parecer: row["Primeira Instancia"] || "Sem parecer",
+        resumo: row["Ementa"] || "Sem resumo",
+        pc: row ["Parecer Técnico"] || "Sem parecer",
+        parecer: row["Primeira Instancia"] || "Sem manifestacao",
         sugestao: row["Sugestão de Julgamento"] || "Sem sugestão",
         status: "pendente",
         votos: [],
@@ -119,6 +120,7 @@ export default function PlenariaApp() {
       "Número do Processo": proc.numero,
       "Autuado(a)": proc.nome,
       Resumo: proc.resumo,
+      "Parecer Técnico": proc.pc
       "Primeira Instancia": proc.parecer,
       "Sugestão de Julgamento": proc.sugestao,
       ...Object.fromEntries(
@@ -188,9 +190,10 @@ export default function PlenariaApp() {
               <CardContent className="space-y-4 pt-6">
                 <h2 className="text-2xl font-bold text-black">
                   Processo nª {processoSelecionado.numero}
-                </h2>
-                <p><strong>Resumo:</strong> {processoSelecionado.resumo}</p>
+                </h2> 
                 <p><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
+                <p><strong>Ementa:</strong> {processoSelecionado.resumo}</p>
+                <p><strong>Parecer Circunstanciado:</strong> {processoSelecionado.pc}</p>
                 <p><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
                 <p><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
 
