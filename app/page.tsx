@@ -187,10 +187,11 @@ export default function PlenariaApp() {
             <Card className="max-w-2xl mx-auto shadow-lg">
               <CardContent className="space-y-4 pt-6">
                 <h2 className="text-2xl font-bold text-black">
-                  Processo {processoSelecionado.numero}
+                  Processo nª {processoSelecionado.numero}
                 </h2>
                 <p><strong>Resumo:</strong> {processoSelecionado.resumo}</p>
-                <p><strong>Parecer Técnico:</strong> {processoSelecionado.parecer}</p>
+                <p><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
+                <p><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
                 <p><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
 
                 <div className="space-y-4">
@@ -243,8 +244,8 @@ export default function PlenariaApp() {
             </Card>
           )}
 
-          {usuario !== administrador && processoSelecionado && (
-            <div className="mt-12 bg-white p-6 rounded shadow-md text-black">
+          {usuario !== administrador && (
+            <div className="mt-10 bg-white p-6 rounded shadow-md text-black">
               <h2 className="text-2xl font-bold mb-4 text-blue-800">
                 Resumo dos Votos (Para consulta do Administrador)
               </h2>
