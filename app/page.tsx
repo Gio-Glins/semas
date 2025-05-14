@@ -186,7 +186,7 @@ export default function PlenariaApp() {
           )}
 
           {usuario !== administrador && processoSelecionado && (
-            <Card className="max-w-2xl mx-auto shadow-lg">
+            <Card className="mt-16 max-w-2xl mx-auto shadow-lg">
               <CardContent className="space-y-4 pt-6">
                 <h2 className="text-2xl font-bold text-black">
                   Processo nª {processoSelecionado.numero}
