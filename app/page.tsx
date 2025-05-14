@@ -17,7 +17,7 @@ const membrosPleno = [
   "teste",
 ];
 
-const administrador = "teste";
+const administrador = "Giovanni Nogueira Glins";
 
 export default function PlenariaApp() {
   const [processos, setProcessos] = useState<any[]>([]);
