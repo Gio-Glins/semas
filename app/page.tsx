@@ -138,7 +138,7 @@ export default function PlenariaApp() {
   return (
     <div className="p-6 space-y-6 bg-gray-900 min-h-screen text-white">
       <h1 className="text-3xl font-extrabold text-center mb-4">Plenária de Julgamento</h1>
-   </div>
+
       {!planilhaCarregada ? (
         <div className="mb-6 bg-gray-800 shadow-md rounded p-4">
           <label className="block mb-2 font-semibold text-lg">Carregar planilha Excel:</label>
@@ -244,7 +244,7 @@ export default function PlenariaApp() {
             </Card>
           )}
 
-          {usuario !== administrador && !== processoSelecionado && (
+          {usuario !== administrador && processoSelecionado == 0 &&(
             <div className="mt-10 bg-white p-6 rounded shadow-md text-black">
               <h2 className="text-2xl font-bold mb-4 text-blue-800">
                 Resumo dos Votos (Para consulta do Administrador)
