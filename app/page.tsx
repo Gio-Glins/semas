@@ -244,7 +244,7 @@ export default function PlenariaApp() {
             </Card>
           )}
 
-          {usuario !== administrador && (
+          {usuario !== administrador && !== processoSelecionado && (
             <div className="mt-10 bg-white p-6 rounded shadow-md text-black">
               <h2 className="text-2xl font-bold mb-4 text-blue-800">
                 Resumo dos Votos (Para consulta do Administrador)
