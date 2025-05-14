@@ -138,7 +138,7 @@ export default function PlenariaApp() {
   return (
     <div className="p-6 space-y-6 bg-gray-900 min-h-screen text-white">
       <h1 className="text-3xl font-extrabold text-center mb-4">Plenária de Julgamento</h1>
-
+   </div>
       {!planilhaCarregada ? (
         <div className="mb-6 bg-gray-800 shadow-md rounded p-4">
           <label className="block mb-2 font-semibold text-lg">Carregar planilha Excel:</label>
