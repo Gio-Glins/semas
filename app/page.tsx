@@ -140,7 +140,7 @@ export default function PlenariaApp() {
       <h1 className="text-3xl font-extrabold text-center mb-4">Plenária de Julgamento</h1>
 
       {!planilhaCarregada ? (
-        <div className="mb-6 bg-gray-600 shadow-md rounded p-4">
+        <div className="mb-12 bg-gray-800 shadow-md rounded p-4">
           <label className="block mb-2 font-semibold text-lg">Carregar planilha Excel:</label>
           <input type="file" accept=".xlsx, .xls" onChange={handleUpload} className="p-2 border rounded w-full bg-gray-700 text-white" />
         </div>
@@ -245,7 +245,7 @@ export default function PlenariaApp() {
           )}
 
           {usuario !== administrador && processosRestantes.length === 0 && (
-            <div className="mt-10 bg-white p-6 rounded shadow-md text-black">
+            <div className="mt-16 bg-white p-6 rounded shadow-md text-black">
               <h2 className="text-2xl font-bold mb-4 text-blue-800">
                 Resumo dos Votos (Para consulta do Administrador)
               </h2>
