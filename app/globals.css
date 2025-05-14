@@ -120,3 +120,6 @@
     @apply bg-background text-foreground;
   }
 }
+.mt-12 bg-white p-6 rounded shadow-md text-black {
+  padding-top: 200px;
+}
