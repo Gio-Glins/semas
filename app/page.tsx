@@ -90,8 +90,9 @@ export default function PlenariaApp() {
       const processosConvertidos = jsonData.map((row: any, index: number) => ({
         id: row["ID"] || index + 1,
         numero: row["Número do Processo"] || `N/A-${index + 1}`,
+        nome: row["Autuado"] || "sem nome",
         resumo: row["Resumo"] || "Sem resumo",
-        parecer: row["Parecer Técnico"] || "Sem parecer",
+        parecer: row["Primeira Instancia"] || "Sem parecer",
         sugestao: row["Sugestão de Julgamento"] || "Sem sugestão",
         status: "pendente",
         votos: [],
@@ -241,7 +242,7 @@ export default function PlenariaApp() {
             </Card>
           )}
 
-          {usuario === administrador && (
+          {usuario === membrosPleno && (
             <div className="mt-12 bg-white p-6 rounded shadow-md text-black">
               <h2 className="text-2xl font-bold mb-4 text-blue-800">
                 Resumo dos Votos (Somente para Administrador)
