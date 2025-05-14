@@ -200,6 +200,13 @@ export default function PlenariaApp() {
                 <div className="space-y-4">
                   <div className="flex space-x-4">
                     <Button className="flex-1" onClick={() => registrarVoto("favor")}>Aprovar parecer</Button>
+                     <Button
+                      className="flex-1"
+                      variant="destructive"
+                      onClick={() => setMostrarMotivo(true)}
+                    >
+                      Acatar Parcialmente
+                    </Button>
                     <Button
                       className="flex-1"
                       variant="destructive"
