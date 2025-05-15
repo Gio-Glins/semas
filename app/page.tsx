@@ -139,7 +139,7 @@ export default function PlenariaApp() {
 
   return (
     <div className="p-6 space-y-6 bg-gray-900 min-h-screen text-white">
-      <h1 className="text-4xl font-extrabold text-center mb-4"> TRIBUNAL ADMINISTRATIVO </h1>
+      <h1 className="text-4xl font-extrabold text-center mb-4"> TRIBUNAL ADMINISTRATIVO - TRA </h1>
 
       {!planilhaCarregada ? (
         <div className="mb-10 bg-gray-800 shadow-md rounded p-2">
@@ -218,11 +218,11 @@ export default function PlenariaApp() {
                   {mostrarMotivo && (
                     <div className="bg-gray-100 p-4 rounded text-black">
                       <label className="block mb-2 font-medium">
-                        Motivo da rejeição (obrigatório):
+                        Voto (obrigatório):
                       </label>
                       <Select onValueChange={setMotivoRejeicao} value={motivoRejeicao}>
                         <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Selecione o motivo da rejeição" />
+                          <SelectValue placeholder="Selecione o voto" />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="majorar">Majorar</SelectItem>
