@@ -175,7 +175,7 @@ export default function PlenariaApp() {
             <div className="flex-direction: column ">
               {processosRestantes.map((proc) => (
                 <Button key={proc.id} className="border px-0.2 p-1" onClick={() => selecionarProcesso(proc.id.toString())}>
-                  {proc.id} - {proc.numero}
+                  {proc.id} 
                 </Button>
               ))}
             </div>
