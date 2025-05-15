@@ -172,7 +172,7 @@ export default function PlenariaApp() {
           </p>
 
           {usuario !== administrador && processos.length > 0 && processosRestantes.length > 0 && (
-            <div className="space-y-2 max-w-md bg-gray-800 shadow-md rounded p-4 mx-auto">
+            <div className="space-y-2 max-w-4x1 bg-gray-800 shadow-md rounded p-4 mx-auto">
               {processosRestantes.map((proc) => (
                 <Button key={proc.id} className="border px-0.2 p-4 py-2" onClick={() => selecionarProcesso(proc.id.toString())}>
                   {proc.id} 
