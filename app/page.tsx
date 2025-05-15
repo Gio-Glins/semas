@@ -139,7 +139,7 @@ export default function PlenariaApp() {
 
   return (
     <div className="p-6 space-y-6 bg-gray-900 min-h-screen text-white">
-      <h1 className="text-4xl font-extrabold text-center mb-4"> TRIBUNAL ADMINISTRATIVO DE RECURSOS AMBIENTAIS - TRA </h1>
+      <h1 className="text-4xl font-extrabold text-center mb-4"> TRIBUNAL ADMINISTRATIVO DE RECURSOS AMBIENTAIS </h1>
 
       {!planilhaCarregada ? (
         <div className="space-y-2 max-w-2xl bg-gray-800 shadow-md rounded p-4 mx-auto">
