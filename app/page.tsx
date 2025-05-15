@@ -172,13 +172,18 @@ export default function PlenariaApp() {
           </p>
 
           {usuario !== administrador && processos.length > 0 && processosRestantes.length > 0 && (
-            <div className="space-y-2 max-w-2x1 bg-gray-800 shadow-md rounded p-4 mx-auto justify-center">
-              {processosRestantes.map((proc) => (
-                <Button key={proc.id} className="border px-0.2 p-4 py-2 justify-center" onClick={() => selecionarProcesso(proc.id.toString())}>
-                  {proc.id} 
-                </Button>
-              ))}
-            </div>
+      <div className="space-y-2 max-w-2xl bg-gray-800 shadow-md rounded p-4 mx-auto flex flex-col items-center">
+  {processosRestantes.map((proc) => (
+    <Button
+      key={proc.id}
+      className="border px-2 py-2"
+      onClick={() => selecionarProcesso(proc.id.toString())}
+    >
+      {proc.id}
+    </Button>
+  ))}
+</div>
+
           )}
 
           {usuario !== administrador && processos.length > 0 && processosRestantes.length === 0 && (
