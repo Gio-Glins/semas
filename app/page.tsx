@@ -189,7 +189,7 @@ export default function PlenariaApp() {
             <Card className="mt-16 max-w-2xl mx-auto shadow-lg">
               <CardContent className="space-y-4 pt-6">
                 <h2 className="text-2xl font-bold text-black">
-                  Processo nª {processoSelecionado.numero}
+                  PROCESSO Nº {processoSelecionado.numero}
                 </h2> 
                 <p><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
                 <p><strong>Ementa:</strong> {processoSelecionado.resumo}</p>
