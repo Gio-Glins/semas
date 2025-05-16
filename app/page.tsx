@@ -246,7 +246,7 @@ export default function PlenariaApp() {
                           onClick={() => registrarVoto("contra")}
                           disabled={!motivoRejeicao}
                         >
-                          Confirmar rejeição
+                          Confirmar voto
                         </Button>
                         <Button className="flex-1" variant="outline" onClick={() => setMostrarMotivo(false)}>
                           Cancelar
@@ -276,7 +276,7 @@ export default function PlenariaApp() {
                     <ul className="mt-2 space-y-1">
                       {(proc.votos || []).map((v: any, index: number) => (
                         <li key={index}>
-                          <strong>{v.membro}:</strong> {v.voto === "favor" ? "Aprovou" : `Rejeitou (${v.motivo})`}
+                          <strong>{v.membro}:</strong> {v.voto === "favor" ? "Aprovou" : `Voto: (${v.motivo})`}
                         </li>
                       ))}
                     </ul>
