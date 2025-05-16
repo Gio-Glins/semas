@@ -126,7 +126,7 @@ export default function PlenariaApp() {
       ...Object.fromEntries(
         (proc.votos || []).map((v: any, i: number) => [
           `Voto ${i + 1}`,
-          `${v.membro}: ${v.voto === "favor" ? "Aprovou" : `Rejeitou (${v.motivo || "Sem motivo especificado"})`}`,
+          `${v.membro}: ${v.voto === "favor" ? "Aprovou o parecer" : `Voto (${v.motivo || "Sem motivo especificado"})`}`,
         ])
       ),
     }));
@@ -172,7 +172,7 @@ export default function PlenariaApp() {
           </p>
 
           {usuario !== administrador && processos.length > 0 && processosRestantes.length > 0 && (
-<div className="flex flex-row flex-wrap justify-center items-center space-x-2 space-y-2 max-w-7xl bg-gray-800 shadow-md rounded-lg p-4 mx-auto">
+<div className="flex flex-row flex-wrap justify-center items-center space-x-2 max-w-7xl bg-gray-800 shadow-md rounded-lg p-4 mx-auto">
   {processosRestantes.map((proc) => (
     <Button
       key={proc.id}
@@ -276,7 +276,7 @@ export default function PlenariaApp() {
                     <ul className="mt-2 space-y-1">
                       {(proc.votos || []).map((v: any, index: number) => (
                         <li key={index}>
-                          <strong>{v.membro}:</strong> {v.voto === "favor" ? "Aprovou" : `Voto: (${v.motivo})`}
+                          <strong>{v.membro}:</strong> {v.voto === "favor" ? "Aprovou o parecer" : `Voto: (${v.motivo})`}
                         </li>
                       ))}
                     </ul>
