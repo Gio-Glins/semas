@@ -7,13 +7,13 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 import * as XLSX from "xlsx";
 
 const membrosPleno = [
-  "Rodolpho Zahluth Bastos",
-  "Lilia Márcia Ramos Reis",
-  "Fabricio Drago Pinho Júnior",
-  "Marcelo Augusto Moreno da Silva Alves",
-  "Luciene Mota de Leão Chaves",
-  "Raul Protázio Romão",
-  "Giovanni Nogueira Glins",
+  "Rodolpho  Bastos",
+  "Lilia Reis",
+  "Fabricio Júnior",
+  "Marcelo Moreno",
+  "Luciene Chaves",
+  "Raul Protázio",
+  "Giovanni Glins",
   "teste",
 ];
 
