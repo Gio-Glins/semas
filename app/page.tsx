@@ -265,10 +265,10 @@ export default function PlenariaApp() {
 
           {usuario !== administrador && processosRestantes.length === 0 && (
             <div className="mt-16 bg-gray-900 p-6 rounded shadow-md text-black">
-              <h2 className="text-2xl font-bold mb-4 text-stone-950">
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Resumo dos Votos (Para consulta do Administrador)
               </h2>
-              <Button className="mb-6" onClick={exportarResultados}>
+              <Button className="mb-6 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2 px-4 rounded-full" onClick={exportarResultados}>
                 Exportar Resultados
               </Button>
               {processos.map((proc) => (
