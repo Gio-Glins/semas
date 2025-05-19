@@ -180,7 +180,7 @@ export default function PlenariaApp() {
   {processosRestantes.map((proc) => (
     <Button
       key={proc.id}
-      className="border px-4 py-2 bg-gray-950 hover:bg-cyan-800 "
+      className="border px-4 py-2 bg-gray-950 hover:bg-cyan-900 "
       onClick={() => selecionarProcesso(proc.id.toString())}
     >
       {proc.id}
