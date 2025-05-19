@@ -146,8 +146,8 @@ export default function PlenariaApp() {
   />
         <h2 className="text-2xl font-bold text-center mb-4"> 15ª Plenaria Extraordinária </h2>
       {!planilhaCarregada ? (
-        <div className="space-y-2 max-w-2xl bg-gray-900 rounded p-4 mx-auto">
-          <label className="block mb-2 font-semibold text-lg text-center">Carregar planilha Excel:</label>
+        <div className="space-y-4 max-w-2xl bg-gray-900 rounded p-6 mx-auto">
+          <label className=" mb-2 font-semibold text-lg text-center">Carregar planilha Excel:</label>
           <input type="file" accept=".xlsx, .xls" onChange={handleUpload} className="p-1 border rounded max-w-2xl bg-gray-800 text-gray-800 justify-center items-center" />
         </div>
       ) : !autenticado ? (
@@ -180,7 +180,7 @@ export default function PlenariaApp() {
   {processosRestantes.map((proc) => (
     <Button
       key={proc.id}
-      className=" font-bold border-2 px-4 py-2 bg-gray-950 hover:bg-stone-300 hover:text-stone-950 "
+      className=" font-bold border-2 px-4 py-2 bg-gray-950 hover:bg-slate-500 hover:text-stone-950 "
       onClick={() => selecionarProcesso(proc.id.toString())}
     >
       {proc.id}
