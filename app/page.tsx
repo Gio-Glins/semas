@@ -146,7 +146,7 @@ export default function PlenariaApp() {
   />
         <h2 className="text-2xl font-bold text-center mb-4"> 15ª Plenaria Extraordinária </h2>
       {!planilhaCarregada ? (
-  <div className="space-y-4 max-w-md bg-gray-800 rounded p-6 text-center">
+  <div className="space-y-4 mx-auto mb-4 w-auto h-16 bg-gray-800 rounded p-6 text-center">
   <label className="block mb-2 font-semibold text-lg">Carregar planilha do Excel:</label>
 
   <label className="inline-block cursor-pointer bg-gray-600 text-white font-semibold py-2 px-4 rounded hover:bg-gray-700 transition">
