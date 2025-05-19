@@ -144,7 +144,7 @@ export default function PlenariaApp() {
     alt="Tribunal Administrativo de Recursos Ambientais"
     className="mx-auto mb-4 w-auto h-16" 
   />
-        <h2 className="text-2xl font-bold text-center mb-4"> 14ª Plenaria Extraordinária </h2>
+        <h2 className="text-2xl font-bold text-center mb-4"> 15ª Plenaria Extraordinária </h2>
       {!planilhaCarregada ? (
         <div className="space-y-2 max-w-2xl bg-gray-900 rounded p-4 mx-auto">
           <label className="block mb-2 font-semibold text-lg">Carregar planilha Excel:</label>
@@ -245,7 +245,7 @@ export default function PlenariaApp() {
                       </Select>
                       <div className="mt-4 flex space-x-4">
                         <Button
-                          className="flex-1 bg-stone-500 hover:bg-stone-600 text-white font-bold py-2 px-4 rounded-full"
+                          className="flex-1 bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-full"
                 
                           onClick={() => registrarVoto("contra")}
                           disabled={!motivoRejeicao}
