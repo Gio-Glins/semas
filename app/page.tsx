@@ -205,7 +205,7 @@ export default function PlenariaApp() {
 
                 <div className="space-y-4">
                   <div className="flex space-x-4">
-                    <Button className="flex-1 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full" onClick={() => registrarVoto("favor")}>Aprovar parecer</Button>
+                    <Button className="flex-1 bg-lime-300 hover:bg-lime-400 text-white font-bold py-2 px-4 rounded-full" onClick={() => registrarVoto("favor")}>Aprovar parecer</Button>
                      <Button
                       className="flex-1 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full"
                       onClick={() => setMostrarMotivo(true)}
@@ -241,14 +241,14 @@ export default function PlenariaApp() {
                       </Select>
                       <div className="mt-4 flex space-x-4">
                         <Button
-                          className="flex-1 bg-grey-500 hover:bg-grey-600 text-white font-bold py-2 px-4 rounded-full"
+                          className="flex-1 bg-slate-500 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-full"
                 
                           onClick={() => registrarVoto("contra")}
                           disabled={!motivoRejeicao}
                         >
                           Confirmar voto
                         </Button>
-                        <Button className="flex-1 bg-white-500 hover:bg-white-600 text-white font-bold py-2 px-4 rounded-full" onClick={() => setMostrarMotivo(false)}>
+                        <Button className="flex-1 bg-stone-500 hover:bg-stone-600 text-white font-bold py-2 px-4 rounded-full" onClick={() => setMostrarMotivo(false)}>
                           Cancelar
                         </Button>
                       </div>
