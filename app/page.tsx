@@ -140,7 +140,7 @@ export default function PlenariaApp() {
   return (
     <div className="p-6 space-y-6 bg-gray-900 min-h-screen text-white">
   <img
-    src="context/logo_semas.png" 
+    src="/context/logo_semas.png" 
     alt="Tribunal Administrativo de Recursos Ambientais"
     className="mx-auto mb-4 w-auto h-16" 
   />
