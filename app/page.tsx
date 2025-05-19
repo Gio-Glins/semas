@@ -149,7 +149,7 @@ export default function PlenariaApp() {
   <div className="space-y-4 max-w-2xl bg-gray-900 rounded p-6 mx-auto text-center">
   <label className="block mb-2 font-semibold text-lg">Carregar planilha do Excel:</label>
 
-  <label className="inline-block cursor-pointer bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition">
+  <label className="inline-block cursor-pointer bg-gray-700 text-white font-semibold py-2 px-4 rounded hover:bg-gray-800 transition">
     Carregar
     <input
       type="file"
