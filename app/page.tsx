@@ -192,7 +192,7 @@ export default function PlenariaApp() {
           )}
 
           {usuario !== administrador && processos.length > 0 && processosRestantes.length === 0 && (
-            <p className="text-green-600 font-medium text-center">Você já votou em todos os processos.</p>
+            <p className="text-green-600 font-xl text-center">Você já votou em todos os processos.</p>
           )}
 
           {usuario !== administrador && processoSelecionado && (
