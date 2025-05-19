@@ -144,7 +144,7 @@ export default function PlenariaApp() {
     alt="Tribunal Administrativo de Recursos Ambientais"
     className="mx-auto mb-4 w-auto h-16" 
   />
-        <h2 className="text-3xl font-extrabold text-center mb-4"> 14ª PLENARIA EXTRAORDINÁRIA </h2>
+        <h2 className="text-2xl font-bold text-center mb-4"> 14ª PLENARIA EXTRAORDINÁRIA </h2>
       {!planilhaCarregada ? (
         <div className="space-y-2 max-w-2xl bg-gray-800 shadow-md rounded p-4 mx-auto">
           <label className="block mb-2 font-semibold text-lg">Carregar planilha Excel:</label>
