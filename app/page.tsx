@@ -205,16 +205,16 @@ export default function PlenariaApp() {
 
                 <div className="space-y-4">
                   <div className="flex space-x-4">
-                    <Button className="flex-1" onClick={() => registrarVoto("favor")}>Aprovar parecer</Button>
+                    <Button className="flex-1 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => registrarVoto("favor")}>Aprovar parecer</Button>
                      <Button
-                      className="flex-1"
+                      className="flex-1 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full"
                       onClick={() => setMostrarMotivo(true)}
                     >
                       Acatar Parcialmente
                     </Button>
                     <Button
-                      className="flex-1"
-                      variant="destructive"
+                      className="flex-1 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
+                  
                       onClick={() => setMostrarMotivo(true)}
                     >
                       Rejeitar parecer
