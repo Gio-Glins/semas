@@ -248,7 +248,7 @@ export default function PlenariaApp() {
                         >
                           Confirmar voto
                         </Button>
-                        <Button className="flex-1" variant="outline" onClick={() => setMostrarMotivo(false)}>
+                        <Button className="flex-1" variant="bg-white-500 hover:bg-white-600 text-white font-bold py-2 px-4 rounded-full" onClick={() => setMostrarMotivo(false)}>
                           Cancelar
                         </Button>
                       </div>
