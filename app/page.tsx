@@ -245,7 +245,7 @@ export default function PlenariaApp() {
                       </Select>
                       <div className="mt-4 flex space-x-4">
                         <Button
-                          className="flex-1 bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-full"
+                          className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded-full"
                 
                           onClick={() => registrarVoto("contra")}
                           disabled={!motivoRejeicao}
