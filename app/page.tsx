@@ -144,7 +144,7 @@ export default function PlenariaApp() {
     alt="Tribunal Administrativo de Recursos Ambientais"
     className="mx-auto mb-4 w-auto h-16" 
   />
-        <h2 className="text-2xl font-bold text-center mb-4"> 14ª PLENARIA EXTRAORDINÁRIA </h2>
+        <h2 className="text-2xl font-bold text-center mb-4"> 14ª Plenaria Extraordinária </h2>
       {!planilhaCarregada ? (
         <div className="space-y-2 max-w-2xl bg-gray-800 shadow-md rounded p-4 mx-auto">
           <label className="block mb-2 font-semibold text-lg">Carregar planilha Excel:</label>
@@ -209,9 +209,9 @@ export default function PlenariaApp() {
 
                 <div className="space-y-4">
                   <div className="flex space-x-4">
-                    <Button className="flex-1 bg-lime-500 hover:bg-lime-600 text-white font-bold py-2 px-4 rounded-full" onClick={() => registrarVoto("favor")}>Aprovar parecer</Button>
+                    <Button className="flex-1 bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => registrarVoto("favor")}>Aprovar parecer</Button>
                      <Button
-                      className="flex-1 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full"
+                      className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full"
                       onClick={() => setMostrarMotivo(true)}
                     >
                       Acatar Parcialmente
