@@ -146,7 +146,7 @@ export default function PlenariaApp() {
   />
         <h2 className="text-2xl font-bold text-center mb-4"> 15ª Plenaria Extraordinária </h2>
       {!planilhaCarregada ? (
-  <div className="space-y-4 bg-gray-900 rounded p-6 text-center">
+  <div className="space-y-4 max-w-xl bg-gray-800 rounded p-6 mx-auto text-center">
   <label className="block mb-2 font-semibold text-lg">Carregar planilha do Excel:</label>
 
   <label className="inline-block cursor-pointer bg-gray-600 text-white font-semibold py-2 px-4 rounded hover:bg-gray-700 transition">
@@ -189,7 +189,7 @@ export default function PlenariaApp() {
   {processosRestantes.map((proc) => (
     <Button
       key={proc.id}
-      className=" font-bold border-2 px-4 py-2 bg-gray-950 hover:bg-slate-500 hover:transition "
+       className=" font-bold border-2 px-4 py-2 bg-gray-950 hover:bg-slate-500 transition transition"
       onClick={() => selecionarProcesso(proc.id.toString())}
     >
       {proc.id}
