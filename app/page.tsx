@@ -95,6 +95,7 @@ export default function PlenariaApp() {
         pc: row ["Parecer Técnico"] || "Sem parecer",
         parecer: row["Primeira Instancia"] || "Sem manifestacao",
         sugestao: row["Sugestão de Julgamento"] || "Sem sugestão",
+        obs: row["Obs] || "",
         status: "pendente",
         votos: [],
       }));
@@ -123,6 +124,7 @@ export default function PlenariaApp() {
       "Parecer Técnico": proc.pc,
       "Primeira Instancia": proc.parecer,
       "Sugestão de Julgamento": proc.sugestao,
+      "Obs": proc.obs,
       ...Object.fromEntries(
         (proc.votos || []).map((v: any, i: number) => [
           `Voto ${i + 1}`,
@@ -215,6 +217,7 @@ export default function PlenariaApp() {
                 <p><strong>Parecer Circunstanciado:</strong> {processoSelecionado.pc}</p>
                 <p><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
                 <p><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
+                <p className="font-semibold text-xs"><strong>Obs:</strong> {processoSelecionado.obs}</p>
 
                 <div className="space-y-4">
                   <div className="flex space-x-4">
