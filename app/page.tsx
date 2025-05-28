@@ -212,12 +212,12 @@ export default function PlenariaApp() {
                 <h2 className="text-2xl font-bold text-black">
                   PROCESSO Nº {processoSelecionado.numero}
                 </h2> 
-                <p><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
-                <p><strong>Ementa:</strong> {processoSelecionado.resumo}</p>
-                <p><strong>Parecer Circunstanciado:</strong> {processoSelecionado.pc}</p>
-                <p><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
-                <p><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
-                <p className="font-semibold text-xs text-red-700 underline"> {processoSelecionado.obs}</p>
+                <p className=" text-justify"><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
+                <p className=" text-justify"><strong>Ementa:</strong> {processoSelecionado.resumo}</p>
+                <p className=" text-justify"><strong>Parecer Circunstanciado:</strong> {processoSelecionado.pc}</p>
+                <p className=" text-justify"><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
+                <p className=" text-justify"><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
+                <p className=" text-justify font-semibold text-xs text-red-700 underline"> {processoSelecionado.obs}</p>
 
                 <div className="space-y-4">
                   <div className="flex space-x-4">
