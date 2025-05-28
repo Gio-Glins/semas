@@ -95,7 +95,7 @@ export default function PlenariaApp() {
         pc: row ["Parecer Técnico"] || "Sem parecer",
         parecer: row["Primeira Instancia"] || "Sem manifestacao",
         sugestao: row["Sugestão de Julgamento"] || "Sem sugestão",
-        obs: row["Obs] || "",
+        obs: row["Obs"] || "",
         status: "pendente",
         votos: [],
       }));
