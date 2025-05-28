@@ -183,7 +183,7 @@ export default function PlenariaApp() {
           </p>
 
           {usuario !== administrador && processos.length > 0 && processosRestantes.length > 0 && (
-<div className="flex flex-row flex-wrap justify-center items-center space-x-2 max-w-7xl bg-gray-900 rounded-lg p-2 mx-auto">
+<div className="flex flex-row flex-wrap justify-center items-center space-x-2 space-y-1 max-w-7xl bg-gray-900 rounded-lg p-2 mx-auto">
   {processosRestantes.map((proc) => (
     <Button
       key={proc.id}
