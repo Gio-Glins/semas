@@ -96,6 +96,7 @@ export default function PlenariaApp() {
         parecer: row["Primeira Instancia"] || "Sem manifestacao",
         sugestao: row["Sugestão de Julgamento"] || "Sem sugestão",
         obs: row["Obs"] || "",
+        termo: row["Termo"] || "",
         status: "pendente",
         votos: [],
       }));
@@ -119,6 +120,7 @@ export default function PlenariaApp() {
   const exportarResultados = () => {
     const dadosExportados = processos.map((proc) => ({
       "Obs": proc.obs,
+      "Termo": proc.termo,
       ...Object.fromEntries(
         (proc.votos || []).map((v: any, i: number) => [
           `Voto ${i + 1}`,
