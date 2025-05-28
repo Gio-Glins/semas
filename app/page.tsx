@@ -213,7 +213,7 @@ export default function PlenariaApp() {
                 <p className=" text-justify"><strong>Sintese do parecer:</strong> {processoSelecionado.pc}</p>
                 <p className=" text-justify"><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
                 <p className=" text-justify"><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
-                <p className=" text-justify font-semibold text-xs text-slate-700 underline"> {processoSelecionado.obs}</p>
+                <p className=" text-justify font-semibold text-xs text-cyan-800 underline"> {processoSelecionado.obs}</p>
 
                 <div className="space-y-4">
                   <div className="flex space-x-4">
