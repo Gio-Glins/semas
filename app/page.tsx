@@ -214,7 +214,7 @@ export default function PlenariaApp() {
                 </h2> 
                 <p className=" text-justify"><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
                 <p className=" text-justify"><strong>Ementa:</strong> {processoSelecionado.resumo}</p>
-                <p className=" text-justify"><strong>Parecer Circunstanciado:</strong> {processoSelecionado.pc}</p>
+                <p className=" text-justify"><strong>Sintese do parecer:</strong> {processoSelecionado.pc}</p>
                 <p className=" text-justify"><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
                 <p className=" text-justify"><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
                 <p className=" text-justify font-semibold text-xs text-red-700 underline"> {processoSelecionado.obs}</p>
