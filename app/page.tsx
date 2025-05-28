@@ -118,12 +118,6 @@ export default function PlenariaApp() {
 
   const exportarResultados = () => {
     const dadosExportados = processos.map((proc) => ({
-      "Número do Processo": proc.numero,
-      "Autuado(a)": proc.nome,
-      Resumo: proc.resumo,
-      "Parecer Técnico": proc.pc,
-      "Primeira Instancia": proc.parecer,
-      "Sugestão de Julgamento": proc.sugestao,
       "Obs": proc.obs,
       ...Object.fromEntries(
         (proc.votos || []).map((v: any, i: number) => [
