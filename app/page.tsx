@@ -217,7 +217,7 @@ export default function PlenariaApp() {
                 <p><strong>Parecer Circunstanciado:</strong> {processoSelecionado.pc}</p>
                 <p><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
                 <p><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
-                <p className="font-semibold text-xs"><strong>Obs:</strong> {processoSelecionado.obs}</p>
+                <p className="font-semibold text-xs text-red-600"><strong>Obs:</strong> {processoSelecionado.obs}</p>
 
                 <div className="space-y-4">
                   <div className="flex space-x-4">
