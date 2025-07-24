@@ -179,10 +179,7 @@ export default function PlenariaApp() {
             <Button className="w-full" onClick={autenticarUsuario}>Entrar</Button>
           </div>
         ) : (
-          <div className="space-y-6">
-            <p className="text-sm text-right text-gray-400">
-              Usuário autenticado: <strong>{usuario}</strong>
-            </p>
+    
 
             {usuario !== administrador && processos.length > 0 && processosRestantes.length > 0 && (
               <div className="flex flex-row flex-wrap justify-center items-center space-x-2 space-y-1 max-w-7xl bg-gray-900 p-2 mx-auto">
