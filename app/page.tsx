@@ -74,7 +74,7 @@ export default function PlenariaApp() {
   const processosRestantes = processos.filter(
     (p) => !(p.votos && p.votos.some((v: { membro: string }) => v.membro === usuario))
   );
-  
+
   const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -99,6 +99,9 @@ export default function PlenariaApp() {
         termo: row["Termo"] || "",
         status: "pendente",
         votos: [],
+        // --- ALTERAÇÃO AQUI ---
+        // Adiciona o campo de documentos, lendo a coluna "Documentos" do Excel
+        documentos: row["Documentos"]?.split(",").map((d: string) => d.trim()) || [],
       }));
 
       setProcessos(processosConvertidos);
@@ -137,168 +140,197 @@ export default function PlenariaApp() {
 
   return (
     <div className="p-6 space-y-6 bg-gray-900 min-h-screen text-white">
-  <img
-    src="logo_semas.png" 
-    alt="Tribunal Administrativo de Recursos Ambientais"
-    className="mx-auto mb-4 w-auto h-16" 
-  />
-        <h2 className="text-2xl font-bold text-center mb-4"> 15ª Plenaria Extraordinária </h2>
-      {!planilhaCarregada ? (
-  <div className="space-y-4 max-w-xl bg-gray-900 rounded p-6 mx-auto text-center">
-  <label className="block mb-2 font-semibold text-lg">Carregar planilha do Excel:</label>
+      <img
+        src="logo_semas.png"  
+        alt="Tribunal Administrativo de Recursos Ambientais"
+        className="mx-auto mb-4 w-auto h-16"  
+      />
+      <h2 className="text-2xl font-bold text-center mb-4"> 15ª Plenaria Extraordinária </h2>
+        {!planilhaCarregada ? (
+          <div className="space-y-4 max-w-xl bg-gray-900 rounded p-6 mx-auto text-center">
+            <label className="block mb-2 font-semibold text-lg">Carregar planilha do Excel:</label>
+            <label className="inline-block cursor-pointer bg-gray-600 text-white font-semibold py-2 px-4 rounded hover:bg-gray-700 transition">
+              Carregar
+              <input
+                type="file"
+                accept=".xlsx, .xls"
+                onChange={handleUpload}
+                className="hidden"
+              />
+            </label>
+          </div>
+        ) : !autenticado ? (
+          <div className="space-y-4 max-w-md bg-gray-800 shadow-md rounded p-6 mx-auto">
+            <p className="text-lg font-medium">Insira seu nome e senha para acessar:</p>
+            <input
+              type="text"
+              placeholder="Nome"
+              className="w-full border px-3 py-2 rounded bg-gray-700 text-white"
+              value={nomeInput}
+              onChange={(e) => setNomeInput(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Senha"
+              className="w-full border px-3 py-2 rounded bg-gray-700 text-white"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+            />
+            <Button className="w-full" onClick={autenticarUsuario}>Entrar</Button>
+          </div>
+        ) : (
+          <div className="space-y-6">
+            <p className="text-sm text-right text-gray-400">
+              Usuário autenticado: <strong>{usuario}</strong>
+            </p>
 
-  <label className="inline-block cursor-pointer bg-gray-600 text-white font-semibold py-2 px-4 rounded hover:bg-gray-700 transition">
-    Carregar
-    <input
-      type="file"
-      accept=".xlsx, .xls"
-      onChange={handleUpload}
-      className="hidden"
-    />
-  </label>
-</div>
-      ) : !autenticado ? (
-        <div className="space-y-4 max-w-md bg-gray-800 shadow-md rounded p-6 mx-auto">
-          <p className="text-lg font-medium">Insira seu nome e senha para acessar:</p>
-          <input
-            type="text"
-            placeholder="Nome"
-            className="w-full border px-3 py-2 rounded bg-gray-700 text-white"
-            value={nomeInput}
-            onChange={(e) => setNomeInput(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Senha"
-            className="w-full border px-3 py-2 rounded bg-gray-700 text-white"
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-          />
-          <Button className="w-full" onClick={autenticarUsuario}>Entrar</Button>
-        </div>
-      ) : (
-        <div className="space-y-6">
-          <p className="text-sm text-right text-gray-400">
-            Usuário autenticado: <strong>{usuario}</strong>
-          </p>
+            {usuario !== administrador && processos.length > 0 && processosRestantes.length > 0 && (
+              <div className="flex flex-row flex-wrap justify-center items-center space-x-2 space-y-1 max-w-7xl bg-gray-900 p-2 mx-auto">
+                {processosRestantes.map((proc) => (
+                  <Button
+                    key={proc.id}
+                    className=" font-bold border-2 px-4 py-2 bg-gray-950 hover:bg-slate-500 transition transition"
+                    onClick={() => selecionarProcesso(proc.id.toString())}
+                  >
+                    {proc.id}
+                  </Button>
+                ))}
+              </div>
+            )}
 
-          {usuario !== administrador && processos.length > 0 && processosRestantes.length > 0 && (
-<div className="flex flex-row flex-wrap justify-center items-center space-x-2 space-y-1 max-w-7xl bg-gray-900 p-2 mx-auto">
-  {processosRestantes.map((proc) => (
-    <Button
-      key={proc.id}
-       className=" font-bold border-2 px-4 py-2 bg-gray-950 hover:bg-slate-500 transition transition"
-      onClick={() => selecionarProcesso(proc.id.toString())}
-    >
-      {proc.id}
-    </Button>
-  ))}
-</div>
+            {usuario !== administrador && processos.length > 0 && processosRestantes.length === 0 && (
+              <p className="text-green-600 text-xl text-center font-bold">Você já votou em todos os processos.</p>
+            )}
 
-
-          )}
-
-          {usuario !== administrador && processos.length > 0 && processosRestantes.length === 0 && (
-            <p className="text-green-600 text-xl text-center font-bold">Você já votou em todos os processos.</p>
-          )}
-
-          {usuario !== administrador && processoSelecionado && (
-            <Card className="mt-16 max-w-2xl mx-auto shadow-lg">
-              <CardContent className="space-y-4 pt-6">
-                <h2 className="text-2xl font-bold text-black">
-                  PROCESSO Nº {processoSelecionado.numero}
-                </h2> 
-                <p className=" text-justify"><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
-                <p className=" text-justify"><strong>Ementa:</strong> {processoSelecionado.resumo}</p>
-                <p className=" text-justify"><strong>Sintese do parecer:</strong> {processoSelecionado.pc}</p>
-                <p className=" text-justify"><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
-                <p className=" text-justify"><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
-                <p className=" text-justify font-semibold text-xs text-cyan-800 underline"> {processoSelecionado.obs}</p>
-
-                <div className="space-y-4">
-                  <div className="flex space-x-4">
-                    <Button className="flex-1 bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => registrarVoto("favor")}>Aprovar parecer</Button>
-                     <Button
-                      className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full"
-                      onClick={() => setMostrarMotivo(true)}
-                    >
-                      Acatar Parcialmente
-                    </Button>
-                    <Button
-                      className="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
-                  
-                      onClick={() => setMostrarMotivo(true)}
-                    >
-                      Rejeitar parecer
-                    </Button>
-                  </div>
-
-                  {mostrarMotivo && (
-                    <div className="bg-gray-100 p-4 rounded text-black">
-                      <label className="block mb-2 font-medium">
-                        Voto (obrigatório):
-                      </label>
-                      <Select onValueChange={setMotivoRejeicao} value={motivoRejeicao}>
-                        <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Selecione o voto" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="majorar">Majorar</SelectItem>
-                          <SelectItem value="minorar">Minorar</SelectItem>
-                          <SelectItem value="manter o PJ">Manter o PJ</SelectItem>
-                          <SelectItem value="cancelar o auto">Cancelar o auto</SelectItem>
-                          <SelectItem value="baixar em diligencia">Baixar em diligência</SelectItem>
-                          <SelectItem value="outro">Outro</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <div className="mt-4 flex space-x-4">
-                        <Button
-                          className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded-full"
-                
-                          onClick={() => registrarVoto("contra")}
-                          disabled={!motivoRejeicao}
-                        >
-                          Confirmar voto
-                        </Button>
-                        <Button className="flex-1 bg-stone-700 hover:bg-stone-800 text-white font-bold py-2 px-4 rounded-full" onClick={() => setMostrarMotivo(false)}>
-                          Cancelar
-                        </Button>
-                      </div>
-                    </div>
+            {/* --- GRANDE ALTERAÇÃO AQUI --- */}
+            {/* Implementa o layout de 2 colunas para exibir documentos e detalhes do processo */}
+            {usuario !== administrador && processoSelecionado && (
+              <div className="flex flex-col md:flex-row gap-6 max-w-7xl mx-auto">
+                {/* Coluna da Esquerda: Documentos */}
+                <div className="w-full md:w-1/3">
+                  {processoSelecionado.documentos && processoSelecionado.documentos.length > 0 && (
+                    <Card className="bg-gray-800 text-white">
+                      <CardContent className="pt-6">
+                        <h3 className="text-lg font-bold mb-4">Documentos do Processo</h3>
+                        <ul className="space-y-2">
+                          {processoSelecionado.documentos.map((doc: string, index: number) => (
+                            <li key={index}>
+                              <a
+                                href={`/documentos/processo_${processoSelecionado.id}/${doc}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-400 hover:underline flex items-center"
+                              >
+                                <span className="mr-2">📄</span>
+                                {doc}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
                   )}
                 </div>
-              </CardContent>
-            </Card>
-          )}
 
-          {usuario !== administrador && processosRestantes.length === 0 && (
-            <div className="mt-16 bg-gray-900 p-6 rounded shadow-md text-black">
-              <h2 className="text-2xl font-bold mb-4 text-white">
-                Resumo dos Votos (Para consulta do Administrador)
-              </h2>
-              <Button className="mb-6 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2 px-4 rounded-full" onClick={exportarResultados}>
-                Exportar Resultados
-              </Button>
-              {processos.map((proc) => (
-                <Card key={proc.id} className="mb-4">
-                  <CardContent className="pt-4">
-                    <h3 className="text-xl font-bold text-gray-800">
-                      Processo {proc.numero}
-                    </h3>
-                    <ul className="mt-2 space-y-1">
-                      {(proc.votos || []).map((v: any, index: number) => (
-                        <li key={index}>
-                          <strong>{v.membro}:</strong> {v.voto === "favor" ? "Aprovou o parecer" : `Voto: (${v.motivo})`}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          )}
-        </div>
-      )}
+                {/* Coluna da Direita: Detalhes e Votação */}
+                <div className="w-full md:w-2/3">
+                  <Card className="shadow-lg">
+                    <CardContent className="space-y-4 pt-6">
+                      <h2 className="text-2xl font-bold text-black">
+                        PROCESSO Nº {processoSelecionado.numero}
+                      </h2>  
+                      <p className=" text-justify"><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
+                      <p className=" text-justify"><strong>Ementa:</strong> {processoSelecionado.resumo}</p>
+                      <p className=" text-justify"><strong>Sintese do parecer:</strong> {processoSelecionado.pc}</p>
+                      <p className=" text-justify"><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
+                      <p className=" text-justify"><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
+                      <p className=" text-justify font-semibold text-xs text-cyan-800 underline"> {processoSelecionado.obs}</p>
+
+                      <div className="space-y-4">
+                        <div className="flex space-x-4">
+                          <Button className="flex-1 bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => registrarVoto("favor")}>Aprovar parecer</Button>
+                          <Button
+                            className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full"
+                            onClick={() => setMostrarMotivo(true)}
+                          >
+                            Acatar Parcialmente
+                          </Button>
+                          <Button
+                            className="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
+                            onClick={() => setMostrarMotivo(true)}
+                          >
+                            Rejeitar parecer
+                          </Button>
+                        </div>
+
+                        {mostrarMotivo && (
+                          <div className="bg-gray-100 p-4 rounded text-black">
+                            <label className="block mb-2 font-medium">
+                              Voto (obrigatório):
+                            </label>
+                            <Select onValueChange={setMotivoRejeicao} value={motivoRejeicao}>
+                              <SelectTrigger className="w-full">
+                                <SelectValue placeholder="Selecione o voto" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="majorar">Majorar</SelectItem>
+                                <SelectItem value="minorar">Minorar</SelectItem>
+                                <SelectItem value="manter o PJ">Manter o PJ</SelectItem>
+                                <SelectItem value="cancelar o auto">Cancelar o auto</SelectItem>
+                                <SelectItem value="baixar em diligencia">Baixar em diligência</SelectItem>
+                                <SelectItem value="outro">Outro</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <div className="mt-4 flex space-x-4">
+                              <Button
+                                className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded-full"
+                                onClick={() => registrarVoto("contra")}
+                                disabled={!motivoRejeicao}
+                              >
+                                Confirmar voto
+                              </Button>
+                              <Button className="flex-1 bg-stone-700 hover:bg-stone-800 text-white font-bold py-2 px-4 rounded-full" onClick={() => setMostrarMotivo(false)}>
+                                Cancelar
+                              </Button>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            )}
+            
+            {/* Seção de Resumo para o Administrador (não foi alterada) */}
+            {usuario === administrador && (
+              <div className="mt-16 bg-gray-900 p-6 rounded shadow-md text-black">
+                <h2 className="text-2xl font-bold mb-4 text-white">
+                  Resumo dos Votos
+                </h2>
+                <Button className="mb-6 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2 px-4 rounded-full" onClick={exportarResultados}>
+                  Exportar Resultados
+                </Button>
+                {processos.map((proc) => (
+                  <Card key={proc.id} className="mb-4">
+                    <CardContent className="pt-4">
+                      <h3 className="text-xl font-bold text-gray-800">
+                        Processo {proc.numero}
+                      </h3>
+                      <ul className="mt-2 space-y-1">
+                        {(proc.votos || []).map((v: any, index: number) => (
+                          <li key={index}>
+                            <strong>{v.membro}:</strong> {v.voto === "favor" ? "Aprovou o parecer" : `Voto: (${v.motivo})`}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
     </div>
   );
 }
