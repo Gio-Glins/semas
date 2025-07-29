@@ -236,14 +236,14 @@ export default function PlenariaApp() {
                 <div className="w-full md:w-2/3">
                   <Card className="shadow-lg">
                     <CardContent className="space-y-4 pt-6">
-                      <h2 className="text-2xl font-bold text-black">
+                      <h2 className="text-3xl font-bold text-black">
                         PROCESSO Nº {processoSelecionado.numero}
                       </h2>  
-                      <p className=" text-justify"><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
-                      <p className=" text-justify"><strong>Ementa:</strong> {processoSelecionado.resumo}</p>
-                      <p className=" text-justify"><strong>Sintese do parecer:</strong> {processoSelecionado.pc}</p>
-                      <p className=" text-justify"><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
-                      <p className=" text-justify"><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
+                      <p className=" text-justify text-2xl"><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
+                      <p className=" text-justify text-2xl"><strong>Ementa:</strong> {processoSelecionado.resumo}</p>
+                      <p className=" text-justify text-2xl"><strong>Sintese do parecer:</strong> {processoSelecionado.pc}</p>
+                      <p className=" text-justify text-2xl"><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
+                      <p className=" text-justify text-2xl"><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
                       <p className=" text-justify font-semibold text-xs text-cyan-800 underline"> {processoSelecionado.obs}</p>
 
                       <div className="space-y-4">
