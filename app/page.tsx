@@ -209,9 +209,9 @@ export default function PlenariaApp() {
                 {/* Coluna da Esquerda: Documentos */}
                 <div className="w-full md:w-1/4">
                   {processoSelecionado.documentos && processoSelecionado.documentos.length > 0 && (
-                    <Card className="bg-gray-800 text-white border border-gray-700">
+                    <Card className="bg-gray-800 text-white border border-gray-400">
                       <CardContent className="p-6">
-                        <h3 className="text-lg font-bold mb-4 pb-4 border-b border-gray-600">Documentos do Processo</h3>
+                        <h3 className="text-lg font-bold mb-4 pb-4 border-b border-gray-400">Documentos do Processo</h3>
                         <ul className="space-y-2">
                           {processoSelecionado.documentos.map((doc: string, index: number) => (
                             <li key={index}>
