@@ -207,7 +207,7 @@ export default function PlenariaApp() {
             {usuario !== administrador && processoSelecionado && (
               <div className="flex flex-col md:flex-row gap-2 max-w-7xl mx-auto">
                 {/* Coluna da Esquerda: Documentos */}
-                <div className="w-full md:w-1/3">
+                <div className="w-full md:w-1/4">
                   {processoSelecionado.documentos && processoSelecionado.documentos.length > 0 && (
                     <Card className="bg-gray-800 text-white mb-4 pb-4 border border-gray-400">
                       <CardContent className="p-4">
