@@ -239,11 +239,11 @@ export default function PlenariaApp() {
                       <h2 className="text-3xl font-bold text-black">
                         PROCESSO Nº {processoSelecionado.numero}
                       </h2>  
-                      <p className=" text-justify text-2xl"><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
-                      <p className=" text-justify text-2xl"><strong>Ementa:</strong> {processoSelecionado.resumo}</p>
-                      <p className=" text-justify text-2xl"><strong>Sintese do parecer:</strong> {processoSelecionado.pc}</p>
-                      <p className=" text-justify text-2xl"><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
-                      <p className=" text-justify text-2xl"><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
+                      <p className=" text-justify text-[20px]"><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
+                      <p className=" text-justify text-[20px]"><strong>Ementa:</strong> {processoSelecionado.resumo}</p>
+                      <p className=" text-justify text-[20px]"><strong>Sintese do parecer:</strong> {processoSelecionado.pc}</p>
+                      <p className=" text-justify text-[20px]"><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
+                      <p className=" text-justify text-[20px]"><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
                       <p className=" text-justify font-semibold text-xs text-cyan-800 underline"> {processoSelecionado.obs}</p>
 
                       <div className="space-y-4">
