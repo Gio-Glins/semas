@@ -221,7 +221,7 @@ export default function PlenariaApp() {
                                 rel="noopener noreferrer"
                                  className="flex items-center w-full p-3 rounded-lg text-gray-200 hover:bg-gray-700 transition-colors duration-200"
                               >
-                                 <span className="truncate">{doc}</span>
+                                 <span className="mr-2">📄</span>
                                 {doc}
                               </a>
                             </li>
