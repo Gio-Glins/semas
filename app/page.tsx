@@ -205,7 +205,7 @@ export default function PlenariaApp() {
             {/* --- GRANDE ALTERAÇÃO AQUI --- */}
             {/* Implementa o layout de 2 colunas para exibir documentos e detalhes do processo */}
             {usuario !== administrador && processoSelecionado && (
-              <div className="flex flex-col md:flex-row gap-6 max-w-none mx-auto">
+              <div className="flex flex-col md:flex-row gap-6 max-w-1400px mx-auto">
                 {/* Coluna da Esquerda: Documentos */}
                 <div className="w-full md:w-1/3">
                   {processoSelecionado.documentos && processoSelecionado.documentos.length > 0 && (
