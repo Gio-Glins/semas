@@ -170,7 +170,7 @@ export default function PlenariaApp() {
               />
             </label>
           </div>
-      </>
+      
         ) : !autenticado ? (
           <div className="space-y-4 max-w-md bg-gray-800 shadow-md rounded p-6 mx-auto">
             <p className="text-lg font-medium">Insira seu nome e senha para acessar:</p>
@@ -243,7 +243,6 @@ export default function PlenariaApp() {
                     </Card>
                   )}
                 </div>
-
                 {/* Coluna da Direita: Detalhes e Votação */}
                 <div className="w-full md:w-2/3">
                   <Card className="shadow-lg">
@@ -346,5 +345,6 @@ export default function PlenariaApp() {
           </div>
         )}
     </div>
+    </>
   );
 }
