@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Head from 'next/head';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
@@ -141,14 +140,6 @@ export default function PlenariaApp() {
   };
 
   return (
-    <>
-      <Head>
-      <link rel="preconnect" href="https://fonts.googleapis.com"  />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" 
-          rel="stylesheet"
-        />
-      </Head>
     <div className="p-6 space-y-6 bg-gray-900 min-h-screen text-white">
       <img
         src="logo_semas.png"  
@@ -246,8 +237,7 @@ export default function PlenariaApp() {
                 <div className="w-full md:w-2/3">
                   <Card className="shadow-lg">
                     <CardContent className="space-y-4 pt-6">
-                      <h2  className="text-2xl text-black tracking-wider uppercase" 
-                    style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700 }}
+                      <h2 className="text-2xl font-bold text-black"> 
                         PROCESSO Nº {processoSelecionado.numero}
                       </h2>  
                       <p className=" text-justify text-[17px] text-sm/6"><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
@@ -343,7 +333,6 @@ export default function PlenariaApp() {
           </div>
         )}
     </div>
-     </>
   );
      
 }
