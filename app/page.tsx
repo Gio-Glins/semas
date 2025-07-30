@@ -247,7 +247,7 @@ export default function PlenariaApp() {
                   <Card className="shadow-lg">
                     <CardContent className="space-y-4 pt-6">
                       <h2 className="text-2xl font-bold text-black tracking-wide"
-                        style={{ fontFamily: 'Oswald', fontWeight: 700 }}
+                       style={{ fontFamily: "'Oswald', serif", fontWeight: 700 }}
                         >
                         PROCESSO Nº {processoSelecionado.numero}
                       </h2>  
