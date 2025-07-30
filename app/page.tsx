@@ -170,6 +170,7 @@ export default function PlenariaApp() {
               />
             </label>
           </div>
+      </>
         ) : !autenticado ? (
           <div className="space-y-4 max-w-md bg-gray-800 shadow-md rounded p-6 mx-auto">
             <p className="text-lg font-medium">Insira seu nome e senha para acessar:</p>
