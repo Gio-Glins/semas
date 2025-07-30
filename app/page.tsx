@@ -143,10 +143,9 @@ export default function PlenariaApp() {
   return (
     <>
       <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap"
+      <link rel="preconnect" href="https://fonts.googleapis.com"  />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin  />
+      <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" 
           rel="stylesheet"
         />
       </Head>
@@ -248,7 +247,7 @@ export default function PlenariaApp() {
                   <Card className="shadow-lg">
                     <CardContent className="space-y-4 pt-6">
                       <h2 className="text-2xl font-bold text-black tracking-wide"
-                        style={{ fontFamily: "'EB Garamond', serif", fontWeight: 700 }}
+                        style={{ fontFamily: 'Oswald', fontWeight: 700 }}
                         >
                         PROCESSO Nº {processoSelecionado.numero}
                       </h2>  
