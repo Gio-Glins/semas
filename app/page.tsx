@@ -246,9 +246,8 @@ export default function PlenariaApp() {
                 <div className="w-full md:w-2/3">
                   <Card className="shadow-lg">
                     <CardContent className="space-y-4 pt-6">
-                      <h2 className="text-2xl font-bold text-black tracking-wide"
-                       style={{ fontFamily: "'Oswald', serif", fontWeight: 700 }}
-                        >
+                      <h2  className="text-2xl text-black tracking-wider uppercase" 
+                    style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700 }}
                         PROCESSO Nº {processoSelecionado.numero}
                       </h2>  
                       <p className=" text-justify text-[17px] text-sm/6"><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
