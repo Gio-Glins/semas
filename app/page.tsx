@@ -343,7 +343,7 @@ export default function PlenariaApp() {
           </div>
         )}
     </div>
-   
+     </>
   );
-       </>
+     
 }
