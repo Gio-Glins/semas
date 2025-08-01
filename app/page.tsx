@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
@@ -29,6 +29,22 @@ export default function PlenariaApp() {
   const [motivoRejeicao, setMotivoRejeicao] = useState("");
   const [mostrarMotivo, setMostrarMotivo] = useState(false);
   const [planilhaCarregada, setPlanilhaCarregada] = useState(false);
+
+   useEffect(() => {
+    const dadosSalvos = localStorage.getItem('dadosDaPlenaria');
+    // O 'if' verifica se existem dados salvos antes de usá-los
+    if (dadosSalvos) {
+      setProcessos(JSON.parse(dadosSalvos));
+      setPlanilhaCarregada(true);
+    }
+  }, []);
+
+    useEffect(() => {
+    // O 'if' evita salvar uma lista vazia no início
+    if (processos.length > 0) {
+      localStorage.setItem('dadosDaPlenaria', JSON.stringify(processos));
+    }
+  }, [processos]);
 
   const selecionarProcesso = (idStr: string) => {
     const id = Number(idStr);
