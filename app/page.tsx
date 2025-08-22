@@ -320,7 +320,7 @@ export default function PlenariaApp() {
             )}
             
             {/* Seção de Resumo para o Administrador (não foi alterada) */}
-            {usuario === administrador && (
+            {usuario !== administrador && processoSelecionado && (
               <div className="mt-16 bg-gray-900 p-6 rounded shadow-md text-black">
                 <h2 className="text-2xl font-bold mb-4 text-white">
                   Resumo dos Votos
