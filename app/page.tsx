@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
@@ -29,6 +29,22 @@ export default function PlenariaApp() {
   const [motivoRejeicao, setMotivoRejeicao] = useState("");
   const [mostrarMotivo, setMostrarMotivo] = useState(false);
   const [planilhaCarregada, setPlanilhaCarregada] = useState(false);
+
+   useEffect(() => {
+    const dadosSalvos = localStorage.getItem('dadosDaPlenaria');
+    // O 'if' verifica se existem dados salvos antes de usá-los
+    if (dadosSalvos) {
+      setProcessos(JSON.parse(dadosSalvos));
+      setPlanilhaCarregada(true);
+    }
+  }, []);
+
+    useEffect(() => {
+    // O 'if' evita salvar uma lista vazia no início
+    if (processos.length > 0) {
+      localStorage.setItem('dadosDaPlenaria', JSON.stringify(processos));
+    }
+  }, [processos]);
 
   const selecionarProcesso = (idStr: string) => {
     const id = Number(idStr);
@@ -59,6 +75,7 @@ export default function PlenariaApp() {
       );
 
       return {
+
         ...p,
         votos: novosVotos,
         status: todosVotaram ? "finalizado" : "pendente",
@@ -145,7 +162,7 @@ export default function PlenariaApp() {
         alt="Tribunal Administrativo de Recursos Ambientais"
         className="mx-auto mb-4 w-auto h-16"  
       />
-      <h2 className="text-2xl font-bold text-center mb-4"> 15ª Plenaria Extraordinária </h2>
+      <h2 className="text-2xl font-bold text-center mb-4"> 18ª Plenaria Extraordinária </h2>
         {!planilhaCarregada ? (
           <div className="space-y-4 max-w-xl bg-gray-900 rounded p-6 mx-auto text-center">
             <label className="block mb-2 font-semibold text-lg">Carregar planilha do Excel:</label>
@@ -159,6 +176,7 @@ export default function PlenariaApp() {
               />
             </label>
           </div>
+      
         ) : !autenticado ? (
           <div className="space-y-4 max-w-md bg-gray-800 shadow-md rounded p-6 mx-auto">
             <p className="text-lg font-medium">Insira seu nome e senha para acessar:</p>
@@ -205,13 +223,13 @@ export default function PlenariaApp() {
             {/* --- GRANDE ALTERAÇÃO AQUI --- */}
             {/* Implementa o layout de 2 colunas para exibir documentos e detalhes do processo */}
             {usuario !== administrador && processoSelecionado && (
-              <div className="flex flex-col md:flex-row gap-6 max-w-7xl mx-auto">
+              <div className="flex flex-col md:flex-row gap-2 max-w-7xl mx-auto">
                 {/* Coluna da Esquerda: Documentos */}
-                <div className="w-full md:w-1/3">
+                <div className="w-full md:w-1/4">
                   {processoSelecionado.documentos && processoSelecionado.documentos.length > 0 && (
-                    <Card className="bg-gray-800 text-white">
-                      <CardContent className="pt-6">
-                        <h3 className="text-lg font-bold mb-4">Documentos do Processo</h3>
+                   <Card className="bg-gray-800 text-white border border-gray-700"> 
+  <CardContent className="p-6"> 
+    <h3 className="text-lg font-bold mb-4 pb-4 border-b border-gray-600">Documentos do Processo</h3>
                         <ul className="space-y-2">
                           {processoSelecionado.documentos.map((doc: string, index: number) => (
                             <li key={index}>
@@ -219,9 +237,9 @@ export default function PlenariaApp() {
                                 href={`/documentos/processo_${processoSelecionado.id}/${doc}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-blue-400 hover:underline flex items-center"
+                                 className="flex items-center w-full p-3 rounded-lg text-gray-200 hover:bg-gray-700 transition-colors duration-200"
                               >
-                                <span className="mr-2">📄</span>
+ 
                                 {doc}
                               </a>
                             </li>
@@ -231,19 +249,18 @@ export default function PlenariaApp() {
                     </Card>
                   )}
                 </div>
-
                 {/* Coluna da Direita: Detalhes e Votação */}
                 <div className="w-full md:w-2/3">
                   <Card className="shadow-lg">
                     <CardContent className="space-y-4 pt-6">
-                      <h2 className="text-2xl font-bold text-black">
+                      <h2 className="text-2xl font-bold text-black"> 
                         PROCESSO Nº {processoSelecionado.numero}
                       </h2>  
-                      <p className=" text-justify"><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
-                      <p className=" text-justify"><strong>Ementa:</strong> {processoSelecionado.resumo}</p>
-                      <p className=" text-justify"><strong>Sintese do parecer:</strong> {processoSelecionado.pc}</p>
-                      <p className=" text-justify"><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
-                      <p className=" text-justify"><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
+                      <p className=" text-justify text-[17px] text-sm/6"><strong>Autuado(a):</strong> {processoSelecionado.nome}</p>
+                      <p className=" text-justify text-[17px] text-sm/6"><strong>Ementa:</strong> {processoSelecionado.resumo}</p>
+                      <p className=" text-justify text-[17px] text-sm/6"><strong>Sintese do parecer:</strong> {processoSelecionado.pc}</p>
+                      <p className=" text-justify text-[17px] text-sm/6"><strong>Primeira instancia:</strong> {processoSelecionado.parecer}</p>
+                      <p className=" text-justify text-[17px] text-sm/6"><strong>Sugestão de Julgamento:</strong> {processoSelecionado.sugestao}</p>
                       <p className=" text-justify font-semibold text-xs text-cyan-800 underline"> {processoSelecionado.obs}</p>
 
                       <div className="space-y-4">
@@ -320,7 +337,7 @@ export default function PlenariaApp() {
                       <ul className="mt-2 space-y-1">
                         {(proc.votos || []).map((v: any, index: number) => (
                           <li key={index}>
-                            <strong>{v.membro}:</strong> {v.voto === "favor" ? "Aprovou o parecer" : `Voto: (${v.motivo})`}
+                            <strong>{v.membro}:</strong> {v.voto === "favor" ? "Aprovou" : `Voto: (${v.motivo})`}
                           </li>
                         ))}
                       </ul>
@@ -333,4 +350,5 @@ export default function PlenariaApp() {
         )}
     </div>
   );
+     
 }
