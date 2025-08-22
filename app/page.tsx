@@ -162,7 +162,7 @@ export default function PlenariaApp() {
         alt="Tribunal Administrativo de Recursos Ambientais"
         className="mx-auto mb-4 w-auto h-16"  
       />
-      <h2 className="text-2xl font-bold text-center mb-4"> 18ª Plenaria Extraordinária </h2>
+      <h2 className="text-2xl font-bold text-center mb-4"> 19ª Plenaria Extraordinária </h2>
         {!planilhaCarregada ? (
           <div className="space-y-4 max-w-xl bg-gray-900 rounded p-6 mx-auto text-center">
             <label className="block mb-2 font-semibold text-lg">Carregar planilha do Excel:</label>
@@ -320,7 +320,7 @@ export default function PlenariaApp() {
             )}
             
             {/* Seção de Resumo para o Administrador (não foi alterada) */}
-            {usuario !== administrador && processoSelecionado && (
+            {usuario !== administrador && processosRestantes.length === 0 &&(
               <div className="mt-16 bg-gray-900 p-6 rounded shadow-md text-black">
                 <h2 className="text-2xl font-bold mb-4 text-white">
                   Resumo dos Votos
